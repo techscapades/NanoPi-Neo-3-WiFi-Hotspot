@@ -9,6 +9,7 @@ WIFI_IFACE=$(iw dev | awk '$1=="Interface"{print $2}' | head -n1)
 
 if [ -z "$WIFI_IFACE" ]; then
     echo "No wireless interface found. Please plug in your USB Wi-Fi dongle."
+    bash ~/wifi_AP/undo_setup_AP.sh
     exit 1
 else
     echo "Found wireless interface: $WIFI_IFACE"
